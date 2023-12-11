@@ -8,6 +8,10 @@
 #include "./day-7/day7-part1.hpp"
 #include "./day-8/day8-part1.hpp"
 #include "./day-9/day9-part1.hpp"
+#include "./day-10/day10-part1.hpp"
+#include "./day-10/day10-part2.hpp"
+
+
 
 
 int main(int argc, const char * argv[]) {
@@ -21,7 +25,11 @@ int main(int argc, const char * argv[]) {
     // std::cout << multiplyValidSolutions();
     // std::cout << "Total winnings: " << totalWinnings();
     // std::cout << "Steps required: " << stepsRequiredZzz();
-    std::cout << "Sum of extrapolated values: " << sumOfExtrapolatedValues();
+    // std::cout << "Sum of extrapolated values: " << sumOfExtrapolatedValues();
+    // std::cout << "Mid distance from start: " << stepsFarthestFromStart();
+    
+    // Day 10 Part 2
+    std::cout << "Tiles enclosed by cycle: " << tilesEnclosedByCycle() << '\n';
     
     std::cout << '\n';
     
