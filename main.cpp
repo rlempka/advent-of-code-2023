@@ -10,6 +10,8 @@
 #include "./day-9/day9-part1.hpp"
 #include "./day-10/day10-part1.hpp"
 #include "./day-10/day10-part2.hpp"
+#include "./day-11/day11-part1.hpp"
+#include "./day-11/day11-part2.hpp"
 
 
 
@@ -29,9 +31,14 @@ int main(int argc, const char * argv[]) {
     // std::cout << "Mid distance from start: " << stepsFarthestFromStart();
     
     // Day 10 Part 2
-    std::cout << "Tiles enclosed by cycle: " << tilesEnclosedByCycle() << '\n';
+    // std::cout << "Tiles enclosed by cycle: " << tilesEnclosedByCycle() << '\n';
     
-    std::cout << '\n';
+    // Day 11 Part 1
+    // std::cout << "Sum of shortest past lengths: " << sumOfShortestPathLengths() << '\n';
+    
+    // Day 11 Part 2
+    std::cout << "Sum of shortest past lengths: " << sumOfShortestPathLengthsPart2() << '\n';
+    
     
     return 0;
 }
