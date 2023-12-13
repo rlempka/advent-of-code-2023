@@ -94,8 +94,9 @@ long long numberOfArrangementsPart2()
     {
         intermediateRes = numArrangements(p.first, p.second, 0, 0, 0, memo);
         arrangementSum += intermediateRes;
+        // There is some odd overlap occuring with my memoization between problems
+        // clearing memo for now to get it working for each input
         memo.clear();
-        // 29818606194615 too low
     }
     
     /*

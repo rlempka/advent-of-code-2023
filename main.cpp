@@ -14,6 +14,8 @@
 #include "./day-11/day11-part2.hpp"
 #include "./day-12/day12-part1.hpp"
 #include "./day-12/day12-part2.hpp"
+#include "./day-13/day13.hpp"
+
 
 
 
@@ -48,7 +50,11 @@ int main(int argc, const char * argv[]) {
     // std::cout << '\n';
     
     // Day 12 part 2
-    std::cout << "Number of arrangements: " << numberOfArrangementsPart2();
+    // std::cout << "Number of arrangements: " << numberOfArrangementsPart2();
+    // std::cout << '\n';
+    
+    // Day 13 part 1
+    std::cout << "Sum of all note summaries: " << day13Part1();
     std::cout << '\n';
     
     return 0;
