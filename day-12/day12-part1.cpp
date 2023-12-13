@@ -30,6 +30,7 @@ long long numberOfArrangements()
             vecSeq.push_back(c);
         }
         
+        
         std::string token;
         
         std::vector<int> vecConsec { };
@@ -128,11 +129,11 @@ bool validSeq(std::vector<char>& seqToCheck, std::vector<int> consecCounts)
     std::sregex_token_iterator end;
 
     std::vector<std::string> result {it, end};
-    result.erase(std::remove(result.begin(), result.end(), ""), result.end());
-
     
     // For some reason the regex pattern is giving an empty string "" at beginning of every result
-    // so need to offset by one
+    // so need to remove
+    result.erase(std::remove(result.begin(), result.end(), ""), result.end());
+
     if (result.size() != consecCounts.size())
     {
         return false;
