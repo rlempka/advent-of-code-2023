@@ -12,6 +12,8 @@
 #include "./day-10/day10-part2.hpp"
 #include "./day-11/day11-part1.hpp"
 #include "./day-11/day11-part2.hpp"
+#include "./day-12/day12-part1.hpp"
+
 
 
 
@@ -37,8 +39,11 @@ int main(int argc, const char * argv[]) {
     // std::cout << "Sum of shortest past lengths: " << sumOfShortestPathLengths() << '\n';
     
     // Day 11 Part 2
-    std::cout << "Sum of shortest past lengths: " << sumOfShortestPathLengthsPart2() << '\n';
+    // std::cout << "Sum of shortest past lengths: " << sumOfShortestPathLengthsPart2() << '\n';
     
+    // Day 12 part 1
+    std::cout << "Number of arrangements: " << numberOfArrangements();
+    std::cout << '\n';
     
     return 0;
 }
