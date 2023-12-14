@@ -26,5 +26,7 @@ long long day13Part2();
 std::vector<std::vector<std::string>> processInput();
 int getHorizontalReflectionPoint(std::vector<std::string>& pattern);
 std::vector<std::string> transposeMatrix(const std::vector<std::string>& matrix);
+bool offByOne(std::string& row1, std::string& row2);
+long long day13Part2();
 
 #endif /* day13_hpp */

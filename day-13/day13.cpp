@@ -115,6 +115,98 @@ int getHorizontalReflectionPoint(std::vector<std::string>& pattern)
     
 }
 
+// Similar to part1 but 3 conditions must true, need to find 2 adjacent rows that match
+// then need to find exactly 1 nonmatching row as we extend outward that can be changed
+// by 1 char exactly to form a match, and finally we need the remaining rows (if any) to match
+// according to our minReflectionSize
+int getHorizontalReflectionPointPart2(std::vector<std::string>& pattern)
+{
+    std::set<std::string> rowsVisitedSet { };
+    rowsVisitedSet.insert(pattern[0] + (std::to_string(0)));
+    
+    int topRowReflectionBreakIdx { -1 };
+    
+    for (int i { 1 }; i < pattern.size(); ++i)
+    {
+        int reflectionOffset { -1 };
+        
+        int numRowsOffByOne { 0 };
+        
+        bool firstEncounterOff { false };
+        
+        if (offByOne(pattern[i], pattern[i + reflectionOffset]))
+        {
+            firstEncounterOff = true;
+            numRowsOffByOne += 1;
+        }
+        
+        if (rowsVisitedSet.find(pattern[i] + (std::to_string(i + reflectionOffset))) != rowsVisitedSet.end() ||
+            firstEncounterOff)
+        {
+            int minReflectionSize = std::min(i - 1, (static_cast<int>(pattern.size()) - i) - 1);
+
+            bool allMatches { true };
+            
+            int j = i + 1;
+            
+            while (minReflectionSize > 0)
+            {
+                reflectionOffset -= 2;
+                
+                if (!(rowsVisitedSet.find(pattern[j] + (std::to_string(j + reflectionOffset))) != rowsVisitedSet.end()))
+                {
+                    if (numRowsOffByOne == 1)
+                    {
+                        allMatches = false;
+                        break;
+                    }
+                    else if (offByOne(pattern[j], pattern[j + reflectionOffset]))
+                    {
+                        numRowsOffByOne += 1;
+                    }
+                    else
+                    {
+                        allMatches = false;
+                        break;
+                    }
+
+                }
+
+                minReflectionSize -= 1;
+                j++;
+            }
+            
+            if (allMatches && (numRowsOffByOne == 1))
+            {
+                topRowReflectionBreakIdx = i;
+            }
+        }
+        
+        if (topRowReflectionBreakIdx != -1)
+        {
+            break;
+        }
+        
+        rowsVisitedSet.insert(pattern[i] + (std::to_string(i)));
+    }
+    
+    return topRowReflectionBreakIdx;
+    
+}
+
+bool offByOne(std::string& row1, std::string& row2)
+{
+    // Sum must equal 1 for the strings to differ by 1 char
+    int sum { 0 };
+    
+    for (int i { 0 }; i < row1.size(); ++i)
+    {
+        sum += static_cast<int>(row1[i] != row2[i]);
+    }
+    
+    return sum == 1;
+}
+
 
 long long day13Part1()
 {
@@ -146,8 +238,29 @@ long long day13Part1()
 
 long long day13Part2()
 {
+    std::vector<std::vector<std::string>> patterns = processInput("./day-13/day13input.txt");
     
-    return 0;
+    long long result { 0 };
+    
+    for (auto& pattern : patterns)
+    {
+        std::vector<std::string> patternT = transposeMatrix(pattern);
+        
+        int horizontalReflectionPoint = getHorizontalReflectionPointPart2(pattern);
+        int verticalReflectionPoint = getHorizontalReflectionPointPart2(patternT);
+        
+        if (horizontalReflectionPoint != -1)
+        {
+            result += (100 * (horizontalReflectionPoint));
+        }
+        else
+        {
+            result += (verticalReflectionPoint);
+        }
+        
+    }
+    
+    return result;
 }
 
 

@@ -54,7 +54,11 @@ int main(int argc, const char * argv[]) {
     // std::cout << '\n';
     
     // Day 13 part 1
-    std::cout << "Sum of all note summaries: " << day13Part1();
+    // std::cout << "Sum of all note summaries: " << day13Part1();
+    // std::cout << '\n';
+    
+    // Day 13 part 2
+    std::cout << "Sum of all note summaries part 2: " << day13Part2();
     std::cout << '\n';
     
     return 0;
