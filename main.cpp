@@ -15,6 +15,7 @@
 #include "./day-12/day12-part1.hpp"
 #include "./day-12/day12-part2.hpp"
 #include "./day-13/day13.hpp"
+#include "./day-14/day14.hpp"
 
 
 
@@ -58,8 +59,17 @@ int main(int argc, const char * argv[]) {
     // std::cout << '\n';
     
     // Day 13 part 2
-    std::cout << "Sum of all note summaries part 2: " << day13Part2();
+    // std::cout << "Sum of all note summaries part 2: " << day13Part2();
+    // std::cout << '\n';
+    
+    // Day 14 part 1
+    // std::cout << "Total load for part 1: " << totalLoadPart1();
+    // std::cout << '\n';
+    
+    // Day 14 part 2
+    std::cout << "Total load for part 2: " << totalLoadPart2();
     std::cout << '\n';
+    
     
     return 0;
 }
