@@ -93,9 +93,10 @@ long long totalLoadPart2()
     
     // 372 match with 508
     // Rotate 93 cycles gets us to 372 rotations
-    // 508 - 372 = 136 rotations (34 cycles)
+    // 508 - 372 = 136 rotations (34 cycles) is the gap between repeat platform arrangements
     // Rotate 34 cycles repeatedly to almost 1 billion
     // (1000000000 - 93) mod 34 = 33
+    // 33  cycles remain to get to 1 billion cycles
     // 126 rotations will do
     
     
