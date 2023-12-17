@@ -17,6 +17,7 @@
 #include "./day-13/day13.hpp"
 #include "./day-14/day14.hpp"
 #include "./day-15/day15.hpp"
+#include "./day-16/day16.hpp"
 
 
 
@@ -77,7 +78,15 @@ int main(int argc, const char * argv[]) {
     // std::cout << '\n';
     
     // Day 15 part 2
-    std::cout << "Sum of initializatin sequence hash part 2: " << day15Part2();
+    // std::cout << "Sum of initializatin sequence hash part 2: " << day15Part2();
+    // std::cout << '\n';
+    
+    // Day 16 part 1
+    // std::cout << "Energized tile count part 1: " << energizedTileCountPart1();
+    // std::cout << '\n';
+    
+    // Day 16 part 2
+    std::cout << "Energized tile count part 2: " << energizedTileCountPart2();
     std::cout << '\n';
     
     return 0;
