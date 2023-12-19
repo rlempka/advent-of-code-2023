@@ -91,7 +91,11 @@ int main(int argc, const char * argv[]) {
     // std::cout << '\n';
     
     // Day 17 part 1
-    std::cout << "Least heat loss part 1: " << leastHeatLoss();
+    // std::cout << "Least heat loss part 1: " << leastHeatLoss();
+    // std::cout << '\n';
+    
+    // Day 17 part 2
+    std::cout << "Least heat loss part 2: " << leastHeatLossPart2();
     std::cout << '\n';
     
     return 0;

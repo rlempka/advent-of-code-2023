@@ -26,5 +26,10 @@ int leastHeatLoss();
 int dijsktraBFSConstrained(const std::vector<std::string>& grid,
                                                      std::pair<int, int> start,
                            std::pair<int, int> end);
+int dijsktraBFSConstrainedPart2(const std::vector<std::string>& grid,
+                                                     std::pair<int, int> start,
+                           std::pair<int, int> end);
+int leastHeatLossPart2();
+
 
 #endif /* day17_hpp */
