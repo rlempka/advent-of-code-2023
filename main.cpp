@@ -19,6 +19,7 @@
 #include "./day-15/day15.hpp"
 #include "./day-16/day16.hpp"
 #include "./day-17/day17.hpp"
+#include "./day-18/day18.hpp"
 
 
 
@@ -95,7 +96,15 @@ int main(int argc, const char * argv[]) {
     // std::cout << '\n';
     
     // Day 17 part 2
-    std::cout << "Least heat loss part 2: " << leastHeatLossPart2();
+    // std::cout << "Least heat loss part 2: " << leastHeatLossPart2();
+    // std::cout << '\n';
+    
+    // Day 18 Part 1
+    // std::cout << "Cubic meters of lava part 1: " << cubicMetersLavaPart1();
+    // std::cout << '\n';
+    
+    // Day 18 Part 2
+    std::cout << "Cubic meters of lava part 2: " << cubicMetersLavaPart2();
     std::cout << '\n';
     
     return 0;
