@@ -20,6 +20,7 @@
 #include "./day-16/day16.hpp"
 #include "./day-17/day17.hpp"
 #include "./day-18/day18.hpp"
+#include "./day-19/day19.hpp"
 
 
 
@@ -104,8 +105,17 @@ int main(int argc, const char * argv[]) {
     // std::cout << '\n';
     
     // Day 18 Part 2
-    std::cout << "Cubic meters of lava part 2: " << cubicMetersLavaPart2();
+    // std::cout << "Cubic meters of lava part 2: " << cubicMetersLavaPart2();
+    // std::cout << '\n';
+    
+    // Day 19 Part 1
+    // std::cout << "Sum of accepted part ratings: " << sumOfAcceptedPartRatings();
+    // std::cout << '\n';
+    
+    // Day 19 Part 2
+    std::cout << "Number of combinations part 2: " << numberOfCombinationsPart2();
     std::cout << '\n';
+    
     
     return 0;
 }
