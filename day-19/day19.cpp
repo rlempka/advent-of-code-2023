@@ -92,9 +92,7 @@ long long numberOfCombinationsPart2()
                 }
                 
             }
-            
-            std::cout << "workflowId: " << workflowId << '\n';
-            
+                        
             workflowMap[workflowId].push_back(reversedPrevRules + currRules);
             
             size_t lastColonPos = currRules.find_last_of(':');
@@ -117,15 +115,6 @@ long long numberOfCombinationsPart2()
     
     std::vector<std::string> currBounds { };
     std::vector<std::vector<std::string>> acceptedBounds { };
-    
-    for (auto& pair : workflowMap)
-    {
-        std::cout << "Key: " << pair.first << '\n';
-        for (auto& val : pair.second)
-        {
-            std::cout << "Val: " << val << '\n';
-        }
-    }
     
     dfsWorkflows("in", currBounds, acceptedBounds, workflowMap);
 
@@ -250,32 +239,6 @@ long long sumOfAcceptedPartRatings()
             workflowMap[workflowId].push_back(rule);
         }
     }
-    
-    /*
-    for (auto& pair : workflowMap)
-    {
-        std::cout << "Key: " << pair.first << '\n';
-        for (auto& val : pair.second)
-        {
-            std::cout << "Val: " << val << '\n';
-        }
-    }
-    */
-    
-    /*
-    for (auto& partMap : partsMaps)
-    {
-        for (auto& p : partMap)
-        {
-            std::cout << "Key: " << p.first << '\n';
-            std::cout << "Val: " << p.second << '\n';
-        }
-        std::cout << '\n';
-        std::cout << '\n';
-        std::cout << '\n';
-
-    }
-    */
     
     // Process all the parts
     

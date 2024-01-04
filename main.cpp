@@ -21,6 +21,8 @@
 #include "./day-17/day17.hpp"
 #include "./day-18/day18.hpp"
 #include "./day-19/day19.hpp"
+#include "./day-20/day20.hpp"
+
 
 
 
@@ -113,9 +115,16 @@ int main(int argc, const char * argv[]) {
     // std::cout << '\n';
     
     // Day 19 Part 2
-    std::cout << "Number of combinations part 2: " << numberOfCombinationsPart2();
-    std::cout << '\n';
+    // std::cout << "Number of combinations part 2: " << numberOfCombinationsPart2();
+    // std::cout << '\n';
     
+    // Day 20 Part 1
+    // std::cout << "Number of low pulses times high pulses part 1: " << lowPulseTimesHighPart1();
+    // std::cout << '\n';
+    
+    // Day 20 Part 1
+    std::cout << "Number of button presses to send low pulse to rx part 2: " << buttonPressesForRxPart2();
+    std::cout << '\n';
     
     return 0;
 }
