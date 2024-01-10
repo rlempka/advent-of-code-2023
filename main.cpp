@@ -22,6 +22,7 @@
 #include "./day-18/day18.hpp"
 #include "./day-19/day19.hpp"
 #include "./day-20/day20.hpp"
+#include "./day-21/day21.hpp"
 
 
 
@@ -123,7 +124,15 @@ int main(int argc, const char * argv[]) {
     // std::cout << '\n';
     
     // Day 20 Part 1
-    std::cout << "Number of button presses to send low pulse to rx part 2: " << buttonPressesForRxPart2();
+    // std::cout << "Number of button presses to send low pulse to rx part 2: " << buttonPressesForRxPart2();
+    // std::cout << '\n';
+    
+    // Day 21 Part 1
+    // std::cout << "Number of garden plots reachable in 64 steps part 1: " << gardenPlotsReachable64StepsPart1();
+    // std::cout << '\n';
+    
+    // Day 21 Part 2
+    std::cout << "Number of garden plots reachable in 26501365 steps part 2: " << gardenPlotsReachableInfinitePart2();
     std::cout << '\n';
     
     return 0;
