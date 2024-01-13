@@ -23,14 +23,7 @@
 #include "./day-19/day19.hpp"
 #include "./day-20/day20.hpp"
 #include "./day-21/day21.hpp"
-
-
-
-
-
-
-
-
+#include "./day-22/day22.hpp"
 
 int main(int argc, const char * argv[]) {
     
@@ -132,8 +125,14 @@ int main(int argc, const char * argv[]) {
     // std::cout << '\n';
     
     // Day 21 Part 2
-    std::cout << "Number of garden plots reachable in 26501365 steps part 2: " << gardenPlotsReachableInfinitePart2();
-    std::cout << '\n';
+    // std::cout << "Number of garden plots reachable in 26501365 steps part 2: " << gardenPlotsReachableInfinitePart2();
+    // std::cout << '\n';
+    
+    // Day 22 Part 1
+    // std::cout << "Count of bricks that can be safely distintegrated part 1: " << safeToDisintegrateBrickCount() << '\n';
+    
+    // Day 22 Part 2
+    std::cout << "Sum of other bricks that would fall part 2: " << sumOfBricksThatWouldFallPart2() << '\n';
     
     return 0;
 }
