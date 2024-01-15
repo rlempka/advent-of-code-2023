@@ -2,7 +2,7 @@
 //  day23.hpp
 //  advent-of-code-2023
 //
-//  Created by Leonhard Euler on 1/13/24.
+//  Created by Leonhard Euler on 1/15/24.
 //
 
 #ifndef day23_hpp
@@ -25,11 +25,9 @@
 #include <iomanip>
 
 typedef long long ll;
+
 using namespace std;
 
-ll longestHikePart1();
-ll longestHikePart2();
-ll dfsLongestHike(int i, int j, int k, int l, set<pair<int,int>>& visited, vector<string>& hikingTrails, unordered_map<char, pair<int,int>>& slopeDirs, int m, int n);
-void dfsLongestHikePart2(int i, int j, int m, int n, vector<vector<bool>>& visited, vector<string>& input, vector<vector<ll>>& longestPaths, ll steps);
+ll numIntersectionsTestAreaPart1();
 
 #endif /* day23_hpp */

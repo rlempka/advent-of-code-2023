@@ -34,6 +34,49 @@ ll longestHikePart1()
     
 }
 
+
+ll longestHikePart2()
+{
+
+    vector<string> hikingTrails { convertFileToLines("./day-23/day23input.txt")};
+    
+    int m { static_cast<int>(hikingTrails.size()) };
+    int n { static_cast<int>(hikingTrails[0].size()) };
+    
+    vector<vector<bool>> visited(m, vector<bool>(n, false));
+    vector<vector<ll>> longestPaths(m, vector<ll>(n, -1));
+    
+    dfsLongestHikePart2(0, 1, m, n, visited, hikingTrails, longestPaths, 0);
+    
+    return longestPaths[m - 1][n - 2];
+}
+
+void dfsLongestHikePart2(int i, int j, int m, int n, vector<vector<bool>>& visited, vector<string>& input, vector<vector<ll>>& longestPaths, ll steps)
+{
+    
+    if (i < 0 || i >= m || j < 0 || j >= n || input[i][j] == '#')
+    {
+        return;
+    }
+    
+    if (visited[i][j] || visited[m - 1][n - 2])
+    {
+        return;
+    }
+    
+    
+    visited[i][j] = true;
+    
+    longestPaths[i][j] = max(steps, longestPaths[i][j]);
+    
+    dfsLongestHikePart2(i + 1, j, m, n, visited, input, longestPaths, steps + 1);
+    dfsLongestHikePart2(i - 1, j, m, n, visited, input, longestPaths, steps + 1);
+    dfsLongestHikePart2(i, j + 1, m, n, visited, input, longestPaths, steps + 1);
+    dfsLongestHikePart2(i, j - 1, m, n, visited, input, longestPaths, steps + 1);
+    
+    visited[i][j] = false;
+}
+
 // Start at (i, j) and update (i, j)
 // Destination is (k, l)
 ll dfsLongestHike(int i, int j, int k, int l, set<pair<int,int>>& visited, vector<string>& hikingTrails, unordered_map<char, pair<int,int>>& slopeDirs, int m, int n)
@@ -47,7 +90,6 @@ ll dfsLongestHike(int i, int j, int k, int l, set<pair<int,int>>& visited, vecto
     
     if (i == k && j == l)
     {
-        
         return 0;
     }
     
@@ -91,6 +133,7 @@ ll dfsLongestHike(int i, int j, int k, int l, set<pair<int,int>>& visited, vecto
         slopeDir = 1 + dfsLongestHike(i + di, j + dj, k, l, visited, hikingTrails, slopeDirs, m, n);
     }
     
+
     visited.erase({ i, j });
     
     return max(slopeDir, max(down, max(up, max(left, right))));

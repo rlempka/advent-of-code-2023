@@ -25,6 +25,7 @@
 #include "./day-21/day21.hpp"
 #include "./day-22/day22.hpp"
 #include "./day-23/day23.hpp"
+#include "./day-24/day24.hpp"
 
 int main(int argc, const char * argv[]) {
     
@@ -136,7 +137,14 @@ int main(int argc, const char * argv[]) {
     // std::cout << "Sum of other bricks that would fall part 2: " << sumOfBricksThatWouldFallPart2() << '\n';
     
     // Day 23 Part 1
-    std::cout << "Longet hike through trails part 1: " << longestHikePart1() << '\n';
+    // std::cout << "Longet hike through trails part 1: " << longestHikePart1() << '\n';
     
+    // Day 23 Part 2
+    // std::cout << "Longest hike through trails part 2: " << longestHikePart2() << '\n';
+    
+    // Day 24 Part 1
+    std::cout << "Number of intersections in test area part 1: " << numIntersectionsTestAreaPart1() << '\n';
+
+
     return 0;
 }
