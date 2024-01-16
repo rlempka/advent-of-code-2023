@@ -28,6 +28,8 @@ typedef long long ll;
 
 using namespace std;
 
+struct Point;
 ll numIntersectionsTestAreaPart1();
+Point rayIntersectingRay(Point p, Point r, Point q, Point s);
 
 #endif /* day24_hpp */

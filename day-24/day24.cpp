@@ -36,12 +36,11 @@ struct Point
     ld label;
 };
 
-typedef pair<Point, Point> seg;
 typedef pair<Point, Point> ray;
 
 // p is the start of the ray, and r is the velocity
 // q is the start of the segment, and s is the start of the segment - end of segment
-Point rayIntersectingSegment(Point p, Point r, Point q, Point s)
+Point rayIntersectingRay(Point p, Point r, Point q, Point s)
 {
     // Ray is p to p + r and segment is q to q + s
     // p to p + r and q to q + s
@@ -72,7 +71,7 @@ Point rayIntersectingSegment(Point p, Point r, Point q, Point s)
         // Due to our bounding box {-1, -1}
         return { -1, -1, 0, 0 };
     }
-    else if (rXs != 0 && t >= 0 && u >= 0 && u <= 1)
+    else if (rXs != 0 && t >= 0 && u >= 0)
     {
         // If r × s ≠ 0 and 0 ≤ t ≤ 1 and 0 ≤ u ≤ 1, the two line segments meet at the point p + t r = q + u s
         return { (p.x + r.x*t), (p.y + r.y*t) };
@@ -89,20 +88,11 @@ ll numIntersectionsTestAreaPart1()
 {
     ifstream hailstoneTrajectories("./day-24/day24input.txt");
     
-    ld testMin { 7 };
-    ld testMax { 27 };
-    
-    seg bottomHoriztonalTestBoundary { {testMin, testMin}, {testMax, testMin} };
-    seg topHoriztonalTestBoundary { {testMin, testMax}, {testMax, testMax} };
-    seg leftVerticalTestBoundary { { testMin, testMin }, { testMin, testMax } };
-    seg rightVerticalTestBoundary { { testMax, testMin }, { testMax, testMax } };
+    ld testMin { 200000000000000 };
+    ld testMax { 400000000000000 };
     
     // Stores the rays as start pos and velocity (2 points)
     vector<ray> rays { };
-    vector<seg> boundaries { bottomHoriztonalTestBoundary, topHoriztonalTestBoundary, leftVerticalTestBoundary, rightVerticalTestBoundary  };
-    
-    // Used to store the segments we discover that the rays create inside of the boundary
-    vector<seg> raySegsWithinBounds { };
     
     string traj;
     
@@ -120,59 +110,32 @@ ll numIntersectionsTestAreaPart1()
         rays.push_back({r1, v1});
     }
     
-    /*
-    for (const auto& r : rays)
-    {
-        cout << "sx: " << r.F.x << " sy: " << r.F.y << " sz: " << r.F.z << '\n';
-        cout << "vx: " << r.S.x << " vy: " << r.S.y << " vz: " << r.S.z << '\n';
-    }
-    */
     
-    for (const auto& r : rays)
+    vector<Point> rayIntersections { };
+    
+    for (int i { 0 }; i < rays.size(); ++i)
     {
-        vector<Point> boundaryIntersections { };
-        
-        for (const auto& b : boundaries)
+        for (int j { i + 1 }; j < rays.size(); ++j)
         {
-            Point boundaryIntersect { rayIntersectingSegment(r.F, r.S, b.F, { b.S.x - b.F.x, b.S.y - b.F.y } ) };
+            Point rayIntersectionPoint { rayIntersectingRay(rays[i].F, rays[i].S, rays[j].F, rays[j].S) };
             
-            // Ray is collinear to a boundary
-            if (boundaryIntersect.x == 0 && boundaryIntersect.y == 0)
-            {
-                boundaryIntersections.push_back(b.F);
-                boundaryIntersections.push_back(b.S);
-                break;
-            }
-            else if (boundaryIntersect.x != - 1 && boundaryIntersect.y != -1)
-            {
-                boundaryIntersections.push_back(boundaryIntersect);
-            }
+            rayIntersections.push_back(rayIntersectionPoint);
+            
         }
-        
-        if (boundaryIntersections.size() > 2 || boundaryIntersections.size() == 1)
-        {
-            // This is actually correct since most of the points are inside the bounding box
-            cout << '\n';
-            cout << "Boundary intersections size: " << boundaryIntersections.size() << '\n';
-            cout << "Error, size should be either 0 (no intersections found) or 2\n";
-            cout << "x: " << boundaryIntersections[0].x << " y: " << boundaryIntersections[0].y << '\n';
-            cout << '\n';
-        }
-        else if (boundaryIntersections.size() == 2)
-        {
-            raySegsWithinBounds.push_back( { boundaryIntersections[0], boundaryIntersections[1] } );
-        }
-        
-        
     }
+        
+        
+    ll validIntersectCount { 0 };
     
     
-    for (const auto& r : raySegsWithinBounds)
+    for (const auto& p : rayIntersections)
     {
-        cout << "sx: " << r.F.x << " sy: " << r.F.y << " sz: " << r.F.z << '\n';
-        cout << "ex: " << r.S.x << " ey: " << r.S.y << " ez: " << r.S.z << '\n';
+        if (p.x >= testMin && p.x <= testMax && p.y >= testMin && p.y <= testMax)
+        {
+            validIntersectCount++;
+        }
     }
     
     
-    return 0;
+    return validIntersectCount;
 }
