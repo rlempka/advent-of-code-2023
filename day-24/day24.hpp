@@ -23,6 +23,9 @@
 #include <list>
 #include <algorithm>
 #include <iomanip>
+#include <Eigen/Dense>
+#include <Eigen/Core>
+
 
 typedef long long ll;
 
@@ -31,5 +34,7 @@ using namespace std;
 struct Point;
 ll numIntersectionsTestAreaPart1();
 Point rayIntersectingRay(Point p, Point r, Point q, Point s);
+ll xyzSumMagicRockInitialPositionPart2();
+Eigen::Matrix3d crossMatrix(Eigen::Vector3d v);
 
 #endif /* day24_hpp */
