@@ -26,6 +26,7 @@
 #include "./day-22/day22.hpp"
 #include "./day-23/day23.hpp"
 #include "./day-24/day24.hpp"
+#include "./day-25/day25.hpp"
 
 int main(int argc, const char * argv[]) {
     
@@ -143,7 +144,13 @@ int main(int argc, const char * argv[]) {
     // std::cout << "Longest hike through trails part 2: " << longestHikePart2() << '\n';
     
     // Day 24 Part 1
-    std::cout << "Number of intersections in test area part 1: " << numIntersectionsTestAreaPart1() << '\n';
+    // std::cout << "Number of intersections in test area part 1: " << numIntersectionsTestAreaPart1() << '\n';
+    
+    // Day 24 Part 2
+    // std::cout << "Sum of initial positions of rock thrown: " << xyzSumMagicRockInitialPositionPart2() << '\n';
+    
+    // Day 25 Part 1
+    std::cout << "Product of group sizes: " <<  graphPartitionGroupSizeProductPart1Simple() << '\n';
 
 
     return 0;
